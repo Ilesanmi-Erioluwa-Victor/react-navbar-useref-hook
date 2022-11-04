@@ -7,7 +7,16 @@ const Navbar = () => {
   const linksRefContainer = useRef();
   const linksRef = useRef();
 
-  useEffect(() => {}, [showList]);
+  useEffect(() => {
+    const getLinksRefHeight = linksRef.current.getBoundingClientRect().height;
+
+    // For checking the height of links-container class Dynamically..
+    if (showList) {
+      linksRefContainer.current.style.height = `${getLinksRefHeight}px`;
+    } else {
+      linksRefContainer.current.style.height = `0px`;
+    }
+  }, [showList]);
 
   return (
     <nav>
