@@ -4,6 +4,10 @@ import { links, social } from "./Data";
 
 const Navbar = () => {
   const [showList, setShowList] = useState(false);
+  const linksRefContainer = useRef();
+  const linksRef = useRef();
+
+  useEffect(() => {}, [showList]);
 
   return (
     <nav>
@@ -16,12 +20,8 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div
-          className={`${
-            showList ? "links-container show-container" : "links-container"
-          }`}
-        >
-          <ul className="links">
+        <div className="links-container" ref={linksRefContainer}>
+          <ul className="links" ref={linksRef}>
             {links.map((link) => {
               const { id, text, url } = link;
               return (
