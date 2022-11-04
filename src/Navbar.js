@@ -16,25 +16,20 @@ const Navbar = () => {
 
         <div className="links-container show-container">
           <ul className="links">
-            <li>
-              <a href={"#"}>Home</a>
-            </li>
-
-            <li>
-              <a href={"#"}>About us</a>
-            </li>
-
-            <li>
-              <a href={"#"}>Contact us</a>
-            </li>
-
-            <li>
-              <a href={"#"}>products</a>
-            </li>
+            {links.map((link) => {
+              const { id, text, url } = link;
+              return (
+                <li key={id}>
+                  <a href={url}>{text}</a>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
-        <ul className="social-icons"></ul>
+        <ul className="social-icons">
+          <li></li>
+        </ul>
       </div>
     </nav>
   );
